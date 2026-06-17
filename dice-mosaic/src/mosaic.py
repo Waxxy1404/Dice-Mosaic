@@ -60,22 +60,17 @@ def validate_square_image(image: np.ndarray) -> None:
     """Require a 1:1 input image so the dice grid stays square."""
     height, width = image.shape[:2]
     if width != height:
-        pad_color=(0, 0, 0)
-        target_size = 500
-        height, width = image.shape[:2]
-        scale = target_size / max(height,width)
-        new_w, new_h = int(width*scale), int(height*scale)
-        interp = cv2.INTER_AREA if scale < 1 else cv2.INTER_CUBIC
-        resized = cv2.resize(image, (new_w, new_h), interpolation=interp)
-        pad_vert = target_size - new_h
-        pad_horz = target_size - new_w
-        top = pad_vert // 2
-        bottom = pad_vert - top
-        left = pad_horz // 2
-        right = pad_horz - left
-        square_img = cv2.copyMakeBorder(resized, top, bottom, left, right,
-        borderType=cv2.BORDER_CONSTANT, value=pad_color)
-
+        target_size = 600
+        h, w = image.shape[:2]
+        if h > w:
+            # Vertical image: crop top and bottom
+            start = (h - w) // 2
+            cropped = image[start:start+w, 0:w]
+        else:
+            # Horizontal image: crop left and right
+            start = (w - h) // 2
+            cropped = image[0:h, start:start+h]
+        image = cv2.resize(cropped, (target_size, target_size), interpolation=cv2.INTER_AREA)
 
 
 def adjust_brightness(gray: np.ndarray, brightness: float) -> np.ndarray:
