@@ -1,11 +1,11 @@
 # Gerador de Mosaico com dados D6
 
-O projeto converte uma imagem em um mosaico físico feito com dados D6. Cada dado representa um nível de brilho — face 1 para as regiões mais claras, face 6 para as mais escuras — e, organizados em uma grade de 40×40.
+O projeto converte uma imagem em um mosaico físico feito com dados D6. Cada dado representa um nível de brilho — face 1 para as regiões mais claras, face 6 para as mais escuras — e, organizados em uma grade de 40×40.\n
 A interface roda no Streamlit e oferece controles de brilho, equalização de histograma, inversão de polaridade (para dados pretos com marcadores brancos) e ativação da otimização de rotação. O output é uma prévia digital do mosaico e uma matriz de montagem exportável em CSV, JSON ou TXT — o guia para montagem do mosaico físico.
 
 ## Pipeline de processamento
 
-1.Validação da imagem de entrada — só são aceitas imagens com proporção 1:1 (altura = largura)
+1.Validação da imagem de entrada — só são aceitas imagens com proporção 1:1 (altura = largura)\n
 2.Conversão para escala de cinza via cv2.cvtColor, descartando informação de cor e mantendo apenas a luminância
 3.Aplicação de offset de brilho sobre a intensidade de cada pixel, controlável pelo usuário
 4.Equalização opcional do histograma com cv2.equalizeHist, redistribuindo os tons para aumentar o contraste em imagens flat
