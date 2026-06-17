@@ -5,18 +5,20 @@ A interface roda no Streamlit e oferece controles de brilho, equalização de hi
 
 ## Pipeline de processamento
 
-1. Validação da imagem quadrada (Altura = Largura)
-2. Conversão para escala de cinza (`cv2.cvtColor`)
-3. Offset de brilho na intensidade de cada pixel
-4. Equalização opcional de histograma (`cv2.equalizeHist`)
-5. Definição de grid fisico de 40×40 (`cv2.resize`, `INTER_AREA`)
-6. Quantização uniforme em seis níveis de intensidade → faces dos dados 1–6
-7. Otimização de rotação opcional para as faces assimétricas 2, 3 e 6
-
-Face **1** é a região mais clara; face **6** é a mais escura.
+1.Validação da imagem de entrada — só são aceitas imagens com proporção 1:1 (altura = largura)
+2.Conversão para escala de cinza via cv2.cvtColor, descartando informação de cor e mantendo apenas a luminância
+3.Aplicação de offset de brilho sobre a intensidade de cada pixel, controlável pelo usuário
+4.Equalização opcional do histograma com cv2.equalizeHist, redistribuindo os tons para aumentar o contraste em imagens flat
+5.Redimensionamento para a grade física de 40×40 células via cv2.resize com interpolação INTER_AREA, adequada para reduções de escala
+6.Quantização uniforme dos níveis de intensidade em seis faixas, mapeadas diretamente para as faces 1–6 do dado
+7.Otimização opcional de rotação para as faces assimétricas 2, 3 e 6 — cada célula é testada nas quatro orientações possíveis (0°, 90°, 180°, 270°) e a que melhor representa a distribuição local de intensidade é mantida
 
 ## Setup
-Abra prompt de comando na pasta do projeto e execute os seguintes comandos:
+Caso não possua Python instalado rode apenas o comando abaixo para instalar:
+```bash
+Python
+```
+Abra prompt de comando na pasta do projeto e execute os comandos abaixo, caso ```.ven\Scripts\activate``` apresente algum erro, siga sem executar:
 ```bash
 cd dice-mosaic
 python -m venv .venv
