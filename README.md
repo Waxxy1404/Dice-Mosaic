@@ -20,7 +20,6 @@ Python
 ```
 Abra prompt de comando na pasta do projeto e execute os comandos abaixo, caso ```.ven\Scripts\activate``` apresente algum erro, siga sem executar:
 ```bash
-cd dice-mosaic
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
