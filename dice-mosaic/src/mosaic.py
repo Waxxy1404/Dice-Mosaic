@@ -65,7 +65,7 @@ def validate_square_image(image: np.ndarray) -> None:
         scale = target_size / max(height,width)
         new_w, new_h = int(width*scale), int(height*scale)
         interp = cv2.INTER_AREA if scale < 1 else cv2.INTER_CUBIC
-        resized = cv2.resize(img, (new_w, new_h), interpolation=interp)
+        resized = cv2.resize(image, (new_w, new_h), interpolation=interp)
         pad_vert = target_size - new_h
         pad_horz = target_size - new_w
         top = pad_vert // 2
