@@ -60,6 +60,7 @@ def validate_square_image(image: np.ndarray) -> None:
     """Require a 1:1 input image so the dice grid stays square."""
     height, width = image.shape[:2]
     if width != height:
+        pad_color=(0, 0, 0)
         target_size = 500
         height, width = image.shape[:2]
         scale = target_size / max(height,width)
