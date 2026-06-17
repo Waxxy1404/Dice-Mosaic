@@ -1,6 +1,6 @@
 # Gerador de Mosaico com dados D6
 
-Construa um mosaico fisico a partir das 6 faces de um dado D6.Faça upload de uma imagem **quadrada (1:1)**, ajuste o brilho, e faça o download:
+Construa um mosaico fisico a partir das 6 faces de um dado D6. Faça upload de uma imagem **quadrada (1:1)**, ajuste o brilho, e faça o download:
 
 - Uma **imagem prévia** com faces virtuais dos dados.
 - Uma **Matrix de monstagem** (CSV / JSON / TXT) para construção do mosaico físico.
