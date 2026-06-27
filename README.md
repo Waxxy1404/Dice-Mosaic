@@ -26,6 +26,8 @@ Face **1** representa regiões mais claras; face **6** representa regiões mais 
 
 ## Setup
 
+Faça o download do diretório **dice-mosaic_FV**.
+
 Abra o prompt de comando na pasta do projeto e execute:
 
 ```bash
