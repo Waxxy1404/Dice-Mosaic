@@ -1,6 +1,6 @@
 # Gerador de Mosaico com dados D6
 
-Construa um mosaico físico a partir das 6 faces de um dado D6. A aplicação permite fazer upload de uma imagem, selecionar manualmente uma região quadrada e gerar um mosaico de dados a partir desse recorte.
+Projeto para geração de um mosaico físico a partir das 6 faces de um dado D6. A aplicação permite fazer upload de uma imagem, selecionar manualmente uma região quadrada e gerar um mosaico de dados a partir desse recorte.
 
 O recorte selecionado é convertido para **600 × 600 px** antes do processamento.
 
